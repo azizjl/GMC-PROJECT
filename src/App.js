@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import { Curtains } from "./component/Curtains";
+import { Login } from "./component/Login";
+import { Home } from "./component/Home";
 
 function App() {
+  const [checked, setChecked] = useState(true);
+
+  const logoStyleBig = {
+    width: "358px",
+    top: "50%",
+  };
+
+  let logoStyleSmall = { width: "150px", top: "15%" };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img
+        style={checked ? logoStyleBig : logoStyleSmall}
+        className="logo"
+        src="fame.png"
+        onClick={() => setChecked(!checked)}
+      />
+      <Curtains checked={checked} setChecked={setChecked} />
+      <Login />
+      {/* <Home /> */}
     </div>
   );
 }
