@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import "./fonts/CircularStd-Black.ttf";
+import "./fonts/CircularStd-Medium.ttf";
 
 ReactDOM.render(
   <React.StrictMode>

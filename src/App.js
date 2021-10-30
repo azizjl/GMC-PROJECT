@@ -12,7 +12,7 @@ function App() {
     top: "50%",
   };
 
-  let logoStyleSmall = { width: "150px", top: "15%" };
+  let logoStyleSmall = { width: "150px", top: "10%" };
 
   return (
     <div className="App">
@@ -23,8 +23,8 @@ function App() {
         onClick={() => setChecked(!checked)}
       />
       <Curtains checked={checked} setChecked={setChecked} />
-      <Login />
-      {/* <Home /> */}
+      {/* <Login /> */}
+      <Home />
     </div>
   );
 }

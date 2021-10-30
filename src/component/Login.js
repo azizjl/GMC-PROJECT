@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Footer } from "./Footer";
 import "./Login.css";
 
 export const Login = () => {
@@ -11,6 +12,7 @@ export const Login = () => {
       }}>
       {SignIn ? (
         <form>
+          <h2 style={{ color: "white" }}>Sign in to join</h2>
           <input type="text" placeholder="Email" />
           <input type="password" placeholder="Password" />
           <button>Sign in</button>
@@ -40,6 +42,7 @@ export const Login = () => {
           </span>
         </form>
       )}
+      <Footer />
     </div>
   );
 };

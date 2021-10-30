@@ -6,3 +6,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@font-face {
+  font-family: "CircularStd Black";
+  src: local("CircularStd"),
+    url("./fonts/CircularStd-Black.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "CircularStd Medium";
+  src: local("CircularStd"),
+    url("./fonts/CircularStd-Medium.ttf") format("truetype");
+}
+
+* {
+  font-family: "CircularStd Medium";
+}

@@ -1,17 +1,33 @@
 .movieWrapper {
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 90%;
   margin: 0 auto;
+  padding-top: 30px;
+  flex-direction: column;
+  background-size: 285px;
+  background-repeat: repeat-x;
+  margin-top: 10px;
+}
+.movieWrapper .moviesTitles {
+  font-size: 20px;
+  /* text-shadow: -1px -1px 0 #fbfbfb, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; */
+  color: white;
+  z-index: 9;
+}
+.bold {
+  font-size: 30px !important;
+
+  font-family: "CircularStd Black";
 }
 .moviesList {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 30px;
 }
 
 .movie {

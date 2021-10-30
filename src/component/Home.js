@@ -1,7 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Home.css";
+import { Movie } from "./Movie";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export const Home = () => {
+  const [voted, setVoted] = useState(0);
+
   const [firstMovie, setFirstMovie] = useState(false);
   const [secondtMovie, setSecondtMovie] = useState(false);
   const [thirdMovie, setThirdMovie] = useState(false);
@@ -21,63 +26,66 @@ export const Home = () => {
       second_video.current.play();
     } else {
       second_video.current.pause();
+      second_video.current.currentTime = 0;
     }
     if (thirdMovie) {
       third_video.current.play();
     } else {
       third_video.current.pause();
+      third_video.current.currentTime = 0;
     }
   }, [firstMovie, secondtMovie, thirdMovie]);
 
   return (
-    <div className="movieWrapper">
-      <div className="moviesList">
-        <div
-          onMouseOver={() => setFirstMovie(true)}
-          onMouseOut={() => setFirstMovie(false)}
-          style={
-            firstMovie
-              ? {
-                  transform: "scale(1.5) translate(80%, 0px)",
-                  backgroundImage: `url('titanic.jpg')`,
-                }
-              : { transform: "scale(1)", backgroundImage: `url('titanic.jpg')` }
-          }
-          className={firstMovie ? "movie shadow" : "movie"}>
-          <video
-            className={firstMovie ? "show" : "hide"}
-            ref={first_video}
-            controls={false}
-            src="titanicTR.mp4"></video>
-          <img src="titanicLogo.png" className="movieLogo" />
-        </div>
-        <div
-          autoPlay={secondtMovie}
-          onMouseOver={() => setSecondtMovie(true)}
-          onMouseOut={() => setSecondtMovie(false)}
-          style={
-            secondtMovie
-              ? { transform: "scale(1.5)" }
-              : { transform: "scale(1)" }
-          }
-          className={secondtMovie ? "movie shadow" : "movie"}>
-          <video ref={second_video} controls={false} src="video.mp4"></video>
-          <span>Fast and furious</span>
-        </div>
-        <div
-          autoPlay={thirdMovie}
-          onMouseOver={() => setThirdMovie(true)}
-          onMouseOut={() => setThirdMovie(false)}
-          style={
-            thirdMovie
-              ? { transform: "scale(1.5) translate(-80%, 0px)" }
-              : { transform: "scale(1)" }
-          }
-          className={thirdMovie ? "movie shadow" : "movie"}>
-          <video ref={third_video} controls={false} src="TR.mp4"></video>
-          <span>The notebook</span>
+    <>
+      <Header />
+      <div className="movieWrapper">
+        {/* style={{ backgroundImage: "url('popcorn.png')" }}> */}
+        <span className="moviesTitles bold">Next movie starts in 2:34:44</span>
+        <span className="moviesTitles">Vote down below</span>
+        <div className="moviesList">
+          <Movie
+            video={first_video}
+            movie={firstMovie}
+            setMovie={setFirstMovie}
+            title="Fast and furious"
+            videoSource="video.mp4"
+            backgroundUrl="titanic.jpg"
+            scale="scale(1.5) translate(80%, 0px) translateY(-45px)"
+            logo="titanicLogo.png"
+            voted={voted === 1}
+            setVoted={setVoted}
+            movieId={1}
+          />
+          <Movie
+            video={second_video}
+            movie={secondtMovie}
+            setMovie={setSecondtMovie}
+            title="titanic"
+            videoSource="titanicTR.mp4"
+            backgroundUrl="titanic.jpg"
+            scale="scale(1.5) translateY(-45px)"
+            logo="titanicLogo.png"
+            voted={voted === 2}
+            setVoted={setVoted}
+            movieId={2}
+          />
+          <Movie
+            video={third_video}
+            movie={thirdMovie}
+            setMovie={setThirdMovie}
+            title="After"
+            videoSource="video.mp4"
+            backgroundUrl="titanic.jpg"
+            scale="scale(1.5) translate(-80%, 0px) translateY(-45px)"
+            logo="titanicLogo.png"
+            voted={voted === 3}
+            setVoted={setVoted}
+            movieId={3}
+          />
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };

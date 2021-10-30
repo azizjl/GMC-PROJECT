@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   /* pointer-events: none; */
-  z-index: 9;
+  z-index: 10;
 }
 .curtain__wrapper {
   width: 100%;
@@ -33,6 +33,7 @@
   align-items: center;
   /* background: orange; */
   background-image: url("https://cdn.pixabay.com/photo/2014/12/28/13/00/curtain-581826_1280.jpg");
+  background-repeat: no-repeat;
   color: #fff;
   float: left;
   position: relative;

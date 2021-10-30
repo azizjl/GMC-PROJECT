@@ -37,3 +37,7 @@
     filter: brightness(1);
   }
 }
+
+.uperIndex {
+  z-index: 9999999999;
+}
