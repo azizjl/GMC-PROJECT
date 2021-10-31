@@ -41,3 +41,34 @@
 .uperIndex {
   z-index: 9999999999;
 }
+
+.Recorder {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoPreview {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.videos {
+  /* position: relative;
+  top: 50%;
+  left: 50%; */
+}
+
+.videos video {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.Recorder .btns {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+}

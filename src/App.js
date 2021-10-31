@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { Curtains } from "./component/Curtains";
 import { Login } from "./component/Login";
 import { Home } from "./component/Home";
+import { MoviePlayer } from "./component/MoviePlayer";
+import { Recorder } from "./component/Recorder";
 
 function App() {
   const [checked, setChecked] = useState(true);
@@ -13,7 +15,10 @@ function App() {
   };
 
   let logoStyleSmall = { width: "150px", top: "10%" };
-
+  let movieWait = {
+    left: "translateX(-80%)",
+    right: "translateX(80%)",
+  };
   return (
     <div className="App">
       <img
@@ -22,9 +27,16 @@ function App() {
         src="fame.png"
         onClick={() => setChecked(!checked)}
       />
-      <Curtains checked={checked} setChecked={setChecked} />
+      <Curtains
+        movieWaitLeft={movieWait.left}
+        movieWaitRight={movieWait.right}
+        checked={checked}
+        setChecked={setChecked}
+      />
       {/* <Login /> */}
-      <Home />
+      {/* <Home /> */}
+      {/* <MoviePlayer /> */}
+      <Recorder />
     </div>
   );
 }

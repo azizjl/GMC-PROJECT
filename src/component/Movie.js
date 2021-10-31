@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Movie.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export const Movie = ({
   movie,
@@ -76,7 +78,12 @@ export const Movie = ({
               }}>
               Watch trailer
             </button>
-            <button className="vote_btn">♡</button>
+            <FontAwesomeIcon
+              onClick={() => setVoted(movieId)}
+              className="voteBtn"
+              icon={faHeart}
+              color={voted ? "black" : "rgb(155, 2, 2)"}
+            />
           </div>
         </>
       ) : (

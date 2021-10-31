@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   /* pointer-events: none; */
-  z-index: 10;
+  z-index: 9999;
 }
 .curtain__wrapper {
   width: 100%;
