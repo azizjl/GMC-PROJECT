@@ -16,11 +16,25 @@ export const Curtains = ({
         <input type="checkbox" checked={checked} />
         <div
           class="curtain__panel curtain__panel--left"
-          style={movieWaitLeft ? { transform: movieWaitLeft } : {}}></div>
+          style={
+            movieWaitLeft
+              ? {
+                  transform: movieWaitLeft,
+                  backgroundImage: `url("curtain-581826_1280.webp")`,
+                }
+              : { backgroundImage: `url("curtain-581826_1280.webp")` }
+          }></div>
 
         <div
           class="curtain__panel curtain__panel--right"
-          style={movieWaitRight ? { transform: movieWaitRight } : {}}></div>
+          style={
+            movieWaitRight
+              ? {
+                  transform: movieWaitRight,
+                  backgroundImage: `url("curtain-581826_1280.webp")`,
+                }
+              : { backgroundImage: `url("curtain-581826_1280.webp")` }
+          }></div>
       </div>
     </div>
   );

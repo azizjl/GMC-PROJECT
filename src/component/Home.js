@@ -3,8 +3,13 @@ import "./Home.css";
 import { Movie } from "./Movie";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Home = () => {
+  const user = useSelector((state) => state.userReducer.user);
+
+  console.log(user);
+
   const [voted, setVoted] = useState(0);
 
   const [firstMovie, setFirstMovie] = useState(false);
@@ -38,7 +43,7 @@ export const Home = () => {
 
   return (
     <>
-      <Header />
+      <Header user={user} />
       <div className="movieWrapper">
         {/* style={{ backgroundImage: "url('popcorn.png')" }}> */}
         <span className="moviesTitles bold">Next movie starts in 2:34:44</span>
