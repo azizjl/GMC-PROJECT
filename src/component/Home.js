@@ -7,8 +7,36 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const Home = () => {
   const user = useSelector((state) => state.userReducer.user);
+  const [time_r, setTime_r] = useState("00:00:00");
 
-  console.log(user);
+  //timer
+
+  useEffect(() => {
+    var timer = setInterval(function () {
+      var now = new Date();
+      var then = new Date(now);
+      then.setDate(then.getDate() + 1);
+      then.setHours(20);
+      then.setMinutes(0);
+      then.setSeconds(0);
+      then.setMilliseconds(0);
+      let left = then.getTime() - now.getTime();
+
+      let duration = left;
+      var milliseconds = Math.floor((duration % 1000) / 100),
+        seconds = Math.floor((duration / 1000) % 60),
+        minutes = Math.floor((duration / (1000 * 60)) % 60),
+        hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+      setTime_r(
+        `${hours < 10 ? `0${hours}` : hours}:${
+          minutes < 10 ? `0${minutes}` : minutes
+        }:${seconds < 10 ? `0${seconds}` : seconds}`
+      );
+    }, 1000);
+  });
+
+  //timer end
 
   const [voted, setVoted] = useState(0);
 
@@ -46,7 +74,9 @@ export const Home = () => {
       <Header user={user} />
       <div className="movieWrapper">
         {/* style={{ backgroundImage: "url('popcorn.png')" }}> */}
-        <span className="moviesTitles bold">Next movie starts in 2:34:44</span>
+        <span style={{ textAlign: "center" }} className="moviesTitles bold">
+          Next movie starts in <br /> {time_r}
+        </span>
         <span className="moviesTitles">Vote down below</span>
         <div className="moviesList">
           <Movie

@@ -31,8 +31,7 @@
 .curtain__panel {
   display: flex;
   align-items: center;
-  /* background: orange; */
-  /* background-image: url("curtain-581826_1280.jpg"); */
+  background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
   float: left;

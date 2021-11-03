@@ -11,18 +11,17 @@ export const Header = ({ user }) => {
   return (
     <div className="Header uperIndex">
       <div className="left">
-        <span>Tickets</span>
-        <span>Upcoming</span>
-        <span>Help</span>
-      </div>
-      <div className="right">
-        <span>Contact Us</span>
-        <Link to="/login" onClick={() => dispatch(logout())}>
-          <span>Logout</span>
-        </Link>
+        <span>My movies</span>
         <Link to="/movie">
           <span>Watch</span>
         </Link>
+        <span>Contact Us</span>
+      </div>
+      <div className="right">
+        <Link to="/login" onClick={() => dispatch(logout())}>
+          <span>Logout</span>
+        </Link>
+
         <span className="profilImg">
           {user && user.fullName}
           <img src="https://previews.123rf.com/images/kritchanut/kritchanut1406/kritchanut140600093/29213195-male-silhouette-avatar-profile-picture.jpg" />

@@ -12,12 +12,20 @@ import PrivateRoute from "./component/PrivateRoute/PrivateRoute";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfile } from "./JS/actions/userAction";
 import { Player } from "./component/Player";
+import { Chat } from "./component/Chat";
+
+import io from "socket.io-client";
+
+const socket = io.connect("http://localhost:5000");
 
 function App() {
   //auth
 
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.userReducer.isAuth);
+  const user = useSelector((state) => state.userReducer.user);
+
+  const [roomname, setRoomname] = useState("public");
 
   useEffect(() => {
     dispatch(getProfile());
@@ -52,6 +60,7 @@ function App() {
         checked={checked}
         setChecked={setChecked}
       />
+      {/* {user && <Chat user={user} roomname={roomname} socket={socket} />} */}
 
       <Switch>
         <PrivateRoute exact path="/" render={() => <Home />} />
@@ -61,13 +70,19 @@ function App() {
             <Login checked={checked} setChecked={setChecked} SignIn={true} />
           )}
         />
+
         <Route
           path="/register"
           render={() => (
             <Login checked={checked} setChecked={setChecked} SignIn={false} />
           )}
         />
-        <Route path="/movie" render={() => <Player />} />
+        <Route
+          path="/movie"
+          render={() => (
+            <Player user={user} roomname={roomname} socket={socket} />
+          )}
+        />
         <Route path="/waiting" render={() => <MoviePlayer />} />
       </Switch>
     </div>
